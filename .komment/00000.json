@@ -7,15 +7,15 @@
         "description": "",
         "items": [
           {
-            "id": "521d8548-9d37-40e2-a6a0-006735284fe2",
+            "id": "3e976da3-0469-47ff-b795-869834eef413",
             "ancestors": [],
             "type": "function",
             "name": "main",
             "location": {
               "offset": " ",
               "indent": 4,
-              "insert": 33,
-              "start": 33
+              "insert": 34,
+              "start": 34
             },
             "returns": false,
             "params": [
@@ -28,27 +28,27 @@
             "docLength": null,
             "length": 23,
             "comment": {
-              "description": "Creates a grid with size base x base, initializes some cells to -1, and then fills the remaining cells randomly. It also solves the game of Sudoku by recursively searching for solutions for each cell based on the already filled cells in the grid.",
+              "description": "Generates a grid with random values, selects a random row and column within the grid, and checks if there is a path from the top-left corner to the randomly selected point using a recursive algorithm. If a path exists, it prints the result, otherwise, it displays \"no result\".",
               "params": [
                 {
                   "name": "args",
                   "type": "String[]",
-                  "description": "0 or more command-line arguments passed to the program, which are not used in this specific function."
+                  "description": "0 or more command-line arguments passed to the program when it is executed, and its values are ignored in this context."
                 }
               ],
               "returns": null
             }
           },
           {
-            "id": "6cfbec25-c6ad-42d1-9dee-4e4243b52e0a",
+            "id": "790b67d9-9fc5-4eca-b312-f79efa963981",
             "ancestors": [],
             "type": "function",
             "name": "solve",
             "location": {
               "offset": " ",
               "indent": 4,
-              "insert": 57,
-              "start": 57
+              "insert": 58,
+              "start": 58
             },
             "returns": "boolean",
             "params": [
@@ -69,27 +69,171 @@
             "docLength": null,
             "length": 25,
             "comment": {
-              "description": "Solves a Sudoku puzzle by iteratively filling in the missing numbers in a grid based on their neighbors and the current count.",
+              "description": "Determines whether a given cell can be filled with a specific number of \"clicks\" or not based on its neighboring cells and the total number of clicks available. It iterates over neighboring cells, checks if they are already filled or not, and recursively calls itself to check if the remaining neighbors can fill the cell.",
               "params": [
                 {
                   "name": "row",
                   "type": "int",
-                  "description": "2D coordinate of a cell in the grid that the solver is trying to solve for."
+                  "description": "2D coordinate of the current cell being checked for orphan detection and solving of the Sudoku puzzle."
                 },
                 {
                   "name": "column",
                   "type": "int",
-                  "description": "2nd column of the grid to search for orphans."
+                  "description": "2D position of the cell in the grid where the algorithm is trying to find a matching cell for the given `count`."
                 },
                 {
                   "name": "count",
                   "type": "int",
-                  "description": "number of filled cells that remain to be found in the grid, and it is used to determine whether or not there is still a solution possible given the current state of the grid."
+                  "description": "2-dimensional position of a cell in the grid that is being searched for an orphan."
                 }
               ],
               "returns": {
                 "type": "boolean",
-                "description": "a boolean value indicating whether the Sudoku puzzle has been solved or not."
+                "description": "a boolean value indicating whether the Sudoku puzzle has been solved."
+              }
+            }
+          },
+          {
+            "id": "45ac2042-9e63-4c11-9090-5464a9cfc4ae",
+            "ancestors": [],
+            "type": "function",
+            "name": "neighbors",
+            "location": {
+              "offset": " ",
+              "indent": 4,
+              "insert": 84,
+              "start": 104
+            },
+            "returns": "List<int[]>",
+            "params": [
+              {
+                "name": "row",
+                "type": "int"
+              },
+              {
+                "name": "column",
+                "type": "int"
+              }
+            ],
+            "skip": false,
+            "docLength": 20,
+            "length": 13,
+            "comment": {
+              "description": "Calculates and returns a list of neighboring cell indices for a given cell (row, column) in a 2D grid, based on moves (row and column changes). It counts the number of neighbors at each index and stores it in an array along with the cell index.",
+              "params": [
+                {
+                  "name": "row",
+                  "type": "int",
+                  "description": "2D coordinate of the cell in the grid that the neighbor search is being performed for."
+                },
+                {
+                  "name": "column",
+                  "type": "int",
+                  "description": "2D position of the cell being checked for neighbors within the grid."
+                }
+              ],
+              "returns": {
+                "type": "List<int[]>",
+                "description": "a list of integer arrays representing the neighbors of a given cell in a 2D grid, along with their count of surrounding cells of the same value."
+              }
+            }
+          },
+          {
+            "id": "440ca0d6-0af3-4182-83cb-b4dfd32d75c4",
+            "ancestors": [],
+            "type": "function",
+            "name": "countNeighbors",
+            "location": {
+              "offset": " ",
+              "indent": 4,
+              "insert": 118,
+              "start": 134
+            },
+            "returns": "int",
+            "params": [
+              {
+                "name": "row",
+                "type": "int"
+              },
+              {
+                "name": "column",
+                "type": "int"
+              }
+            ],
+            "skip": false,
+            "docLength": 16,
+            "length": 9,
+            "comment": {
+              "description": "Counts the number of neighbors of a given cell (row, column) in a grid, based on the moves array.",
+              "params": [
+                {
+                  "name": "row",
+                  "type": "int",
+                  "description": "2D coordinate of the grid cell whose neighbors are being counted."
+                },
+                {
+                  "name": "column",
+                  "type": "int",
+                  "description": "2D coordinate of the grid position where the neighbors are counted."
+                }
+              ],
+              "returns": {
+                "type": "int",
+                "description": "the number of neighbors of a given cell in the grid."
+              }
+            }
+          },
+          {
+            "id": "9d99eb71-38b8-44fc-bd33-cd950019b55e",
+            "ancestors": [],
+            "type": "function",
+            "name": "orphanDetected",
+            "location": {
+              "offset": " ",
+              "indent": 4,
+              "insert": 144,
+              "start": 172
+            },
+            "returns": "boolean",
+            "params": [
+              {
+                "name": "count",
+                "type": "int"
+              },
+              {
+                "name": "row",
+                "type": "int"
+              },
+              {
+                "name": "column",
+                "type": "int"
+              }
+            ],
+            "skip": false,
+            "docLength": 28,
+            "length": 11,
+            "comment": {
+              "description": "Checks if a given cell is an orphan by examining its neighbors and verifying if any of them have zero count neighbors.",
+              "params": [
+                {
+                  "name": "count",
+                  "type": "int",
+                  "description": "number of occupied cells in the grid at row `row` and column `column`, which is used to determine whether an orphan cell exists at that location."
+                },
+                {
+                  "name": "row",
+                  "type": "int",
+                  "description": "1D coordinate of the cell being analyzed within the 2D grid."
+                },
+                {
+                  "name": "column",
+                  "type": "int",
+                  "description": "2D position of the current cell in the grid, which is used to determine the neighbors of the cell and check if any of them are orphans."
+                }
+              ],
+              "returns": {
+                "type": "boolean",
+                "description": "a boolean value indicating whether an orphan block exists at the specified position."
               }
             }
           }
