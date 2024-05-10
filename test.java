@@ -2,7 +2,21 @@ package com.thealgorithms.backtracking;
 
 import java.util.*;
 
+/**
+ * is a Java program that simulates the game of Tic-Tac-Toe. It has several methods
+ * for solving the game, including the popular "Recursive Backtracking" method and
+ * the "Iterative Simplification" method. The program also includes a method for
+ * printing the solution to the game in a grid format.
+ */
 public class KnightsTour {
+    
+    /**
+     * calculates the number of elements in a circular buffer by iterating over the
+     * buffer's nodes and counting the number of non-null items. If the count reaches
+     * Integer.MAX_VALUE, the function breaks out of the loop.
+     * 
+     * @returns the number of elements in the collection.
+     */
     public int size() {
         restartFromHead: for (;;) {
             int count = 0;
@@ -18,7 +32,6 @@ public class KnightsTour {
             return count;
         }
     }
-    
     private static final int base = 12;
     private static final int[][] moves = {
         {1, -2},
@@ -35,13 +48,15 @@ public class KnightsTour {
     private static int total; // total squares in chess
 
     /**
-     * Generates a grid of size base x base and sets some cells to -1. It then randomly
-     * selects a row and column, and checks if there is a path from the selected cell to
-     * the center (row 2, col 2). If such a path exists, the function prints the result.
-     * Otherwise, it prints "no result".
+     * generates a grid of size `base x base`, initializes it with values, and then places
+     * a random value at a random location. It then calls the `solve` function to solve
+     * the puzzle, and if successful, prints the result.
      * 
-     * @param args 1-2 command-line arguments passed to the program, which can be used
-     * to set base and total parameters if desired.
+     * @param args 0 or more command-line arguments passed to the program, which are not
+     * used in this specific function.
+     * 
+     * 	- `args`: an array of strings representing command-line arguments passed to the
+     * program. Each string in the array represents a single argument.
      */
     public static void main(String[] args) {
         grid = new int[base][base];
@@ -68,17 +83,19 @@ public class KnightsTour {
     }
     
     /**
-     * Solves a sliding puzzle by determining if there is a valid solution to move all
-     * tiles from one side of the grid to the other, starting at a given position and
-     * count of moves. It does this by recursively checking neighboring positions and
-     * updating the grid as needed.
+     * determines whether a given cell is the last unvisited cell in a grid, by recursively
+     * exploring neighboring cells and updating their values based on whether they are
+     * already visited or not.
      * 
-     * @param row 2D coordinate of the cell being analyzed for orphans.
+     * @param row 2D coordinate of a cell in the grid, which is used to determine the
+     * neighbors of that cell and to update the cell's value during the algorithm's execution.
      * 
-     * @param column 2D coordinate of the cell to be examined for possible orphaned regions.
+     * @param column 2D coordinate of the cell in the grid that the function is solving
+     * for, and it is used to determine the correct value for the cell based on the
+     * neighboring cells.
      * 
-     * @param count 2D position of the current cell in the grid, and it is used to determine
-     * whether the cell is part of an orphan or not in the given row and column.
+     * @param count 2D position of a tile that needs to be found in the grid, and it is
+     * used to determine whether the tile has been found or not during the search process.
      * 
      * @returns a boolean value indicating whether the Sudoku puzzle has been solved.
      */

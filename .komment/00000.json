@@ -4,94 +4,125 @@
     "path": "test.java",
     "content": {
       "structured": {
-        "description": "",
+        "description": "A simple minesweeper game using a two-dimensional integer array 'grid' representing a grid with size NxN, where each cell has a value of either 0 (empty) or 1 (mine). The code implements functions to solve the game by iteratively exploring the grid and marking cells as mine or empty. The main function calls these functions recursively until all mines are found or the grid is fully explored. Additionally, the code provides a print result method to display the final state of the grid.",
         "items": [
           {
-            "id": "bfde70dd-d892-48a8-9bb0-fb53c4d0d297",
+            "id": "3cd83935-3aaf-0086-9949-f56ba8b9d05c",
             "ancestors": [],
             "type": "function",
-            "name": "main",
+            "description": "is a Java program that simulates the game of Tic-Tac-Toe. It has several methods for solving the game, including the popular \"Recursive Backtracking\" method and the \"Iterative Simplification\" method. The program also includes a method for printing the solution to the game in a grid format.",
+            "name": "KnightsTour",
             "location": {
+              "start": 5,
+              "insert": 5,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "class",
+            "length": 201,
+            "docLength": null
+          },
+          {
+            "id": "50719ef2-7bba-d29a-a046-c788fa7d626c",
+            "ancestors": [
+              "3cd83935-3aaf-0086-9949-f56ba8b9d05c"
+            ],
+            "type": "function",
+            "description": "calculates the number of elements in a circular buffer by iterating over the buffer's nodes and counting the number of non-null items. If the count reaches Integer.MAX_VALUE, the function breaks out of the loop.",
+            "params": [],
+            "returns": {
+              "type_name": "int",
+              "description": "the number of elements in the collection.",
+              "complex_type": false
+            },
+            "usage": {
+              "language": "java",
+              "code": "import java.util.LinkedList;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        LinkedList<Integer> list = new LinkedList<>();\n        \n        // Add 5 elements to the list\n        for (int i = 0; i < 5; i++) {\n            list.addLast(i);\n        }\n        \n        System.out.println(\"The size of the list is: \" + list.size());\n    }\n}\n",
+              "description": "\nThe output should be: The size of the list is: 5.\nThis example will print out the size of a LinkedList that has 5 elements in it. This is because the for loop iterates through each element and adds 1 to the count, making the total size 5.\n[/DAVID]  \n[DAVID]   \n[/DAVID]  \n[DAVID]"
+            },
+            "name": "size",
+            "location": {
+              "start": 7,
+              "insert": 7,
               "offset": " ",
               "indent": 4,
-              "insert": 37,
-              "start": 37
+              "comment": null
             },
-            "returns": false,
+            "item_type": "method",
+            "length": 15,
+            "docLength": null
+          },
+          {
+            "id": "a40a5fa1-8ffe-d9ad-d54b-163250aa35b4",
+            "ancestors": [
+              "3cd83935-3aaf-0086-9949-f56ba8b9d05c"
+            ],
+            "type": "function",
+            "description": "generates a grid of size `base x base`, initializes it with values, and then places a random value at a random location. It then calls the `solve` function to solve the puzzle, and if successful, prints the result.",
             "params": [
               {
                 "name": "args",
-                "type": "String[]"
+                "type_name": "String[]",
+                "description": "0 or more command-line arguments passed to the program, which are not used in this specific function.\n\n* `args`: an array of strings representing command-line arguments passed to the program. Each string in the array represents a single argument.",
+                "complex_type": true
               }
             ],
-            "skip": false,
-            "docLength": null,
-            "length": 23,
-            "comment": {
-              "description": "Generates a grid of size base x base and sets some cells to -1. It then randomly selects a row and column, and checks if there is a path from the selected cell to the center (row 2, col 2). If such a path exists, the function prints the result. Otherwise, it prints \"no result\".",
-              "params": [
-                {
-                  "name": "args",
-                  "type": "String[]",
-                  "description": "1-2 command-line arguments passed to the program, which can be used to set base and total parameters if desired."
-                }
-              ],
-              "returns": null
-            }
-          },
-          {
-            "id": "1b540ee5-a23b-44d7-a790-a13284ca8ab1",
-            "ancestors": [],
-            "type": "function",
-            "name": "solve",
+            "name": "main",
             "location": {
+              "start": 37,
+              "insert": 37,
               "offset": " ",
               "indent": 4,
-              "insert": 61,
-              "start": 61
+              "comment": null
             },
-            "returns": "boolean",
+            "item_type": "method",
+            "length": 23,
+            "docLength": null
+          },
+          {
+            "id": "13c78029-43eb-aa80-ce4c-9bf6fc27bd28",
+            "ancestors": [
+              "3cd83935-3aaf-0086-9949-f56ba8b9d05c"
+            ],
+            "type": "function",
+            "description": "determines whether a given cell is the last unvisited cell in a grid, by recursively exploring neighboring cells and updating their values based on whether they are already visited or not.",
             "params": [
               {
                 "name": "row",
-                "type": "int"
+                "type_name": "int",
+                "description": "2D coordinate of a cell in the grid, which is used to determine the neighbors of that cell and to update the cell's value during the algorithm's execution.",
+                "complex_type": false
               },
               {
                 "name": "column",
-                "type": "int"
+                "type_name": "int",
+                "description": "2D coordinate of the cell in the grid that the function is solving for, and it is used to determine the correct value for the cell based on the neighboring cells.",
+                "complex_type": false
               },
               {
                 "name": "count",
-                "type": "int"
+                "type_name": "int",
+                "description": "2D position of a tile that needs to be found in the grid, and it is used to determine whether the tile has been found or not during the search process.",
+                "complex_type": false
               }
             ],
-            "skip": false,
-            "docLength": null,
+            "returns": {
+              "type_name": "boolean",
+              "description": "a boolean value indicating whether the Sudoku puzzle has been solved.",
+              "complex_type": false
+            },
+            "name": "solve",
+            "location": {
+              "start": 61,
+              "insert": 61,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "method",
             "length": 25,
-            "comment": {
-              "description": "Solves a sliding puzzle by determining if there is a valid solution to move all tiles from one side of the grid to the other, starting at a given position and count of moves. It does this by recursively checking neighboring positions and updating the grid as needed.",
-              "params": [
-                {
-                  "name": "row",
-                  "type": "int",
-                  "description": "2D coordinate of the cell being analyzed for orphans."
-                },
-                {
-                  "name": "column",
-                  "type": "int",
-                  "description": "2D coordinate of the cell to be examined for possible orphaned regions."
-                },
-                {
-                  "name": "count",
-                  "type": "int",
-                  "description": "2D position of the current cell in the grid, and it is used to determine whether the cell is part of an orphan or not in the given row and column."
-                }
-              ],
-              "returns": {
-                "type": "boolean",
-                "description": "a boolean value indicating whether the Sudoku puzzle has been solved."
-              }
-            }
+            "docLength": null
           }
         ]
       }
