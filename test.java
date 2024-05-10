@@ -8,6 +8,7 @@ public class KnightsTour {
         restartFromHead: for (;;) {
             int count = 0;
             for (Node<E> p = first(); p != null;) {
+                
                 if (p.item != null)
                     if (++count == Integer.MAX_VALUE)
                         break;  // @see Collection.size()
