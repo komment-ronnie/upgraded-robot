@@ -2,9 +2,23 @@ package com.thealgorithms.backtracking;
 
 import java.util.*;
 
-
+/**
+ * is a Java program that solves the classic problem of finding the Knight's Tour on
+ * an NxN chessboard. The class has several methods for determining the moves available
+ * to the knight at each position, counting the number of neighbors of a given cell,
+ * and checking if a cell is an orphan (i.e., has no alive neighbors). The `printResult()`
+ * method prints the values stored in the grid array with each row represented as a
+ * list of integers.
+ */
 public class KnightsTour {
     
+    /**
+     * iterates through a linked list's nodes, counting the number of non-null items and
+     * breaking the loop when it reaches the maximum value or finds the end of the list.
+     * It returns the count of non-null items.
+     * 
+     * @returns the number of elements in the collection.
+     */
     public int size() {
         restartFromHead: for (;;) {
             int count = 0;
@@ -35,6 +49,24 @@ public class KnightsTour {
     private static int[][] grid; // chess grid
     private static int total; // total squares in chess
 
+    /**
+     * generates a grid of size base x base, sets some cells to -1, and then solves the
+     * game by finding the cell containing the single 1. If the solution is found, it
+     * prints the result; otherwise, it prints "no result".
+     * 
+     * @param args 0 or more command-line arguments passed to the program, which are not
+     * used in this case.
+     * 
+     * 	- `args`: An array of `String` objects, representing the command-line arguments
+     * passed to the program.
+     * 	- `base`: A constant integer representing the size of the grid.
+     * 	- `total`: The total area of the grid, calculated as the product of `base` and `base`.
+     * 
+     * The code then proceeds to fill the grid with values, marking any cells that are
+     * outside the boundaries of the grid as `-1`. Finally, it solves a particular instance
+     * of the Sudoku puzzle using the `solve()` function, and prints the result if the
+     * solution is found, or "no result" otherwise.
+     */
     public static void main(String[] args) {
         grid = new int[base][base];
         total = (base - 4) * (base - 4);
@@ -59,6 +91,23 @@ public class KnightsTour {
         }
     }
     
+    /**
+     * determines if a given cell can be filled with a specific value by iterating through
+     * neighboring cells and updating their values based on a sorting and comparison algorithm.
+     * 
+     * @param row 2D coordinate of the cell being checked for orphans, and is used to
+     * determine the corresponding value in the grid array and to perform the orphan
+     * detection check.
+     * 
+     * @param column 2nd dimension of the grid, which is used to determine the position
+     * of the cell to be examined and its neighbors in the grid.
+     * 
+     * @param count 2D position of a tile in the grid that is being searched for orphaned
+     * tiles.
+     * 
+     * @returns a boolean value indicating whether the Sudoku puzzle has been solved or
+     * not.
+     */
     private static boolean solve(int row, int column, int count) {
         if (count > total) {
             return true;

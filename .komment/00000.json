@@ -1,0 +1,131 @@
+[
+  {
+    "name": "test.java",
+    "path": "test.java",
+    "content": {
+      "structured": {
+        "description": "a class called \"MineSweeper\" that implements a simple Mine Sweeper game in Java. The code uses various methods and classes from the `java.util` package to perform tasks such as counting the number of alive neighbors of a given cell, finding orphan nodes (i.e., nodes with no alive neighbors), and printing the grid layout of the minesweeper game.\n\nThe main function of the code is to solve a Mine Sweeper game by iterating over the entire grid, using the `neighbors` method to find the number of alive neighbors of a given cell, and the `orphanDetected` method to detect orphan nodes (i.e., nodes with no alive neighbors). When an orphan node is detected, the code prints a message indicating that an orphan has been found.\n\nOnce all orphan nodes have been detected, the code uses the `printResult` method to print out the layout of the grid, with each row represented as a list of integers and each integer separated by two spaces for padding. A new line is printed at the end of each row.",
+        "items": [
+          {
+            "id": "b452d986-27f5-2aad-db4e-8b9574c7c7f7",
+            "ancestors": [],
+            "type": "function",
+            "description": "is a Java program that solves the classic problem of finding the Knight's Tour on an NxN chessboard. The class has several methods for determining the moves available to the knight at each position, counting the number of neighbors of a given cell, and checking if a cell is an orphan (i.e., has no alive neighbors). The `printResult()` method prints the values stored in the grid array with each row represented as a list of integers.",
+            "name": "KnightsTour",
+            "location": {
+              "start": 5,
+              "insert": 5,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "class",
+            "length": 201,
+            "docLength": null
+          },
+          {
+            "id": "e753beed-dd2e-0bbd-e84a-675fd6080a51",
+            "ancestors": [
+              "b452d986-27f5-2aad-db4e-8b9574c7c7f7"
+            ],
+            "type": "function",
+            "description": "iterates through a linked list's nodes, counting the number of non-null items and breaking the loop when it reaches the maximum value or finds the end of the list. It returns the count of non-null items.",
+            "params": [],
+            "returns": {
+              "type_name": "int",
+              "description": "the number of elements in the collection.",
+              "complex_type": false
+            },
+            "usage": {
+              "language": "java",
+              "code": "LinkedList<String> linkedList = new LinkedList<>();\n\nlinkedList.add(\"I\");\nlinkedList.add(\"am\");\nlinkedList.add(\"a\");\nlinkedList.add(\"Linked\");\nlinkedList.add(\"list\");\nlinkedList.add(\"of\");\nlinkedList.add(\"strings\");\n\nSystem.out.println(linkedList.size()); // Output: 7\n",
+              "description": "\nThe example above creates a new LinkedList of strings and adds 7 elements to it. The method size is then called on the linked list object, which will return the number of elements in the linked list, which in this case is 7."
+            },
+            "name": "size",
+            "location": {
+              "start": 7,
+              "insert": 7,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 15,
+            "docLength": null
+          },
+          {
+            "id": "fb1cd0e7-fd61-8482-4641-da8d16f4ab21",
+            "ancestors": [
+              "b452d986-27f5-2aad-db4e-8b9574c7c7f7"
+            ],
+            "type": "function",
+            "description": "generates a grid of size base x base, sets some cells to -1, and then solves the game by finding the cell containing the single 1. If the solution is found, it prints the result; otherwise, it prints \"no result\".",
+            "params": [
+              {
+                "name": "args",
+                "type_name": "String[]",
+                "description": "0 or more command-line arguments passed to the program, which are not used in this case.\n\n* `args`: An array of `String` objects, representing the command-line arguments passed to the program.\n* `base`: A constant integer representing the size of the grid.\n* `total`: The total area of the grid, calculated as the product of `base` and `base`.\n\nThe code then proceeds to fill the grid with values, marking any cells that are outside the boundaries of the grid as `-1`. Finally, it solves a particular instance of the Sudoku puzzle using the `solve()` function, and prints the result if the solution is found, or \"no result\" otherwise.",
+                "complex_type": true
+              }
+            ],
+            "name": "main",
+            "location": {
+              "start": 37,
+              "insert": 37,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 23,
+            "docLength": null
+          },
+          {
+            "id": "5163241c-5dee-389e-9d40-db915183d810",
+            "ancestors": [
+              "b452d986-27f5-2aad-db4e-8b9574c7c7f7"
+            ],
+            "type": "function",
+            "description": "determines if a given cell can be filled with a specific value by iterating through neighboring cells and updating their values based on a sorting and comparison algorithm.",
+            "params": [
+              {
+                "name": "row",
+                "type_name": "int",
+                "description": "2D coordinate of the cell being checked for orphans, and is used to determine the corresponding value in the grid array and to perform the orphan detection check.",
+                "complex_type": false
+              },
+              {
+                "name": "column",
+                "type_name": "int",
+                "description": "2nd dimension of the grid, which is used to determine the position of the cell to be examined and its neighbors in the grid.",
+                "complex_type": false
+              },
+              {
+                "name": "count",
+                "type_name": "int",
+                "description": "2D position of a tile in the grid that is being searched for orphaned tiles.",
+                "complex_type": false
+              }
+            ],
+            "returns": {
+              "type_name": "boolean",
+              "description": "a boolean value indicating whether the Sudoku puzzle has been solved or not.",
+              "complex_type": false
+            },
+            "name": "solve",
+            "location": {
+              "start": 61,
+              "insert": 61,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 25,
+            "docLength": null
+          }
+        ]
+      }
+    }
+  }
+]
