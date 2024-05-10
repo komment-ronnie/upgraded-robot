@@ -2,6 +2,7 @@ package com.thealgorithms.backtracking;
 
 import java.util.*;
 
+
 public class KnightsTour {
     
     public int size() {
