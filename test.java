@@ -30,6 +30,14 @@ public int size() {
     private static int[][] grid; // chess grid
     private static int total; // total squares in chess
 
+    /**
+     * Creates a grid with size base x base, initializes some cells to -1, and then fills
+     * the remaining cells randomly. It also solves the game of Sudoku by recursively
+     * searching for solutions for each cell based on the already filled cells in the grid.
+     * 
+     * @param args 0 or more command-line arguments passed to the program, which are not
+     * used in this specific function.
+     */
     public static void main(String[] args) {
         grid = new int[base][base];
         total = (base - 4) * (base - 4);
@@ -54,6 +62,22 @@ public int size() {
         }
     }
     
+    /**
+     * Solves a Sudoku puzzle by iteratively filling in the missing numbers in a grid
+     * based on their neighbors and the current count.
+     * 
+     * @param row 2D coordinate of a cell in the grid that the solver is trying to solve
+     * for.
+     * 
+     * @param column 2nd column of the grid to search for orphans.
+     * 
+     * @param count number of filled cells that remain to be found in the grid, and it
+     * is used to determine whether or not there is still a solution possible given the
+     * current state of the grid.
+     * 
+     * @returns a boolean value indicating whether the Sudoku puzzle has been solved or
+     * not.
+     */
     private static boolean solve(int row, int column, int count) {
         if (count > total) {
             return true;

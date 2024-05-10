@@ -1,0 +1,100 @@
+[
+  {
+    "name": "test.java",
+    "path": "test.java",
+    "content": {
+      "structured": {
+        "description": "",
+        "items": [
+          {
+            "id": "521d8548-9d37-40e2-a6a0-006735284fe2",
+            "ancestors": [],
+            "type": "function",
+            "name": "main",
+            "location": {
+              "offset": " ",
+              "indent": 4,
+              "insert": 33,
+              "start": 33
+            },
+            "returns": false,
+            "params": [
+              {
+                "name": "args",
+                "type": "String[]"
+              }
+            ],
+            "skip": false,
+            "docLength": null,
+            "length": 23,
+            "comment": {
+              "description": "Creates a grid with size base x base, initializes some cells to -1, and then fills the remaining cells randomly. It also solves the game of Sudoku by recursively searching for solutions for each cell based on the already filled cells in the grid.",
+              "params": [
+                {
+                  "name": "args",
+                  "type": "String[]",
+                  "description": "0 or more command-line arguments passed to the program, which are not used in this specific function."
+                }
+              ],
+              "returns": null
+            }
+          },
+          {
+            "id": "6cfbec25-c6ad-42d1-9dee-4e4243b52e0a",
+            "ancestors": [],
+            "type": "function",
+            "name": "solve",
+            "location": {
+              "offset": " ",
+              "indent": 4,
+              "insert": 57,
+              "start": 57
+            },
+            "returns": "boolean",
+            "params": [
+              {
+                "name": "row",
+                "type": "int"
+              },
+              {
+                "name": "column",
+                "type": "int"
+              },
+              {
+                "name": "count",
+                "type": "int"
+              }
+            ],
+            "skip": false,
+            "docLength": null,
+            "length": 25,
+            "comment": {
+              "description": "Solves a Sudoku puzzle by iteratively filling in the missing numbers in a grid based on their neighbors and the current count.",
+              "params": [
+                {
+                  "name": "row",
+                  "type": "int",
+                  "description": "2D coordinate of a cell in the grid that the solver is trying to solve for."
+                },
+                {
+                  "name": "column",
+                  "type": "int",
+                  "description": "2nd column of the grid to search for orphans."
+                },
+                {
+                  "name": "count",
+                  "type": "int",
+                  "description": "number of filled cells that remain to be found in the grid, and it is used to determine whether or not there is still a solution possible given the current state of the grid."
+                }
+              ],
+              "returns": {
+                "type": "boolean",
+                "description": "a boolean value indicating whether the Sudoku puzzle has been solved or not."
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+]
