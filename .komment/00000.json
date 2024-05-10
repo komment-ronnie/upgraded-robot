@@ -7,15 +7,15 @@
         "description": "",
         "items": [
           {
-            "id": "20deacc7-f2b5-423e-85db-b0b68a470cae",
+            "id": "bfde70dd-d892-48a8-9bb0-fb53c4d0d297",
             "ancestors": [],
             "type": "function",
             "name": "main",
             "location": {
               "offset": " ",
               "indent": 4,
-              "insert": 38,
-              "start": 38
+              "insert": 37,
+              "start": 37
             },
             "returns": false,
             "params": [
@@ -28,27 +28,27 @@
             "docLength": null,
             "length": 23,
             "comment": {
-              "description": "Creates a grid of size `base x base`, sets some cells to -1, and then randomly selects a row and column within the grid. If the cell at the selected position is not -1, it solves the game by tracing a path from the starting point to the end using Breadth-First Search. Finally, it prints the result of solving or not solving the game.",
+              "description": "Generates a grid of size base x base and sets some cells to -1. It then randomly selects a row and column, and checks if there is a path from the selected cell to the center (row 2, col 2). If such a path exists, the function prints the result. Otherwise, it prints \"no result\".",
               "params": [
                 {
                   "name": "args",
                   "type": "String[]",
-                  "description": "0-argument main method, which is required for a Java program to be executed as a standalone application."
+                  "description": "1-2 command-line arguments passed to the program, which can be used to set base and total parameters if desired."
                 }
               ],
               "returns": null
             }
           },
           {
-            "id": "6304efc4-b15c-48f9-85e1-bf75f0b4a1d3",
+            "id": "1b540ee5-a23b-44d7-a790-a13284ca8ab1",
             "ancestors": [],
             "type": "function",
             "name": "solve",
             "location": {
               "offset": " ",
               "indent": 4,
-              "insert": 62,
-              "start": 62
+              "insert": 61,
+              "start": 61
             },
             "returns": "boolean",
             "params": [
@@ -69,27 +69,27 @@
             "docLength": null,
             "length": 25,
             "comment": {
-              "description": "Solves a Sudoku puzzle by iterating through the grid and applying a set of rules to fill in missing values based on their neighbors.",
+              "description": "Solves a sliding puzzle by determining if there is a valid solution to move all tiles from one side of the grid to the other, starting at a given position and count of moves. It does this by recursively checking neighboring positions and updating the grid as needed.",
               "params": [
                 {
                   "name": "row",
                   "type": "int",
-                  "description": "2D coordinate of the cell being analyzed for its neighbors and possible matches in the grid."
+                  "description": "2D coordinate of the cell being analyzed for orphans."
                 },
                 {
                   "name": "column",
                   "type": "int",
-                  "description": "2nd dimension of the grid, which is used to identify the position of the cell being analyzed and to keep track of the count of occupied cells in each row."
+                  "description": "2D coordinate of the cell to be examined for possible orphaned regions."
                 },
                 {
                   "name": "count",
                   "type": "int",
-                  "description": "2D position of the current cell that is being checked for possible placement of a block, and determines the number of blocks that can be placed at that position."
+                  "description": "2D position of the current cell in the grid, and it is used to determine whether the cell is part of an orphan or not in the given row and column."
                 }
               ],
               "returns": {
                 "type": "boolean",
-                "description": "a boolean value indicating whether the Sudoku puzzle is solved or not."
+                "description": "a boolean value indicating whether the Sudoku puzzle has been solved."
               }
             }
           }

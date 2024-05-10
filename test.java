@@ -3,7 +3,6 @@ package com.thealgorithms.backtracking;
 import java.util.*;
 
 public class KnightsTour {
-
     public int size() {
         restartFromHead: for (;;) {
             int count = 0;
@@ -36,14 +35,13 @@ public class KnightsTour {
     private static int total; // total squares in chess
 
     /**
-     * Creates a grid of size `base x base`, sets some cells to -1, and then randomly
-     * selects a row and column within the grid. If the cell at the selected position is
-     * not -1, it solves the game by tracing a path from the starting point to the end
-     * using Breadth-First Search. Finally, it prints the result of solving or not solving
-     * the game.
+     * Generates a grid of size base x base and sets some cells to -1. It then randomly
+     * selects a row and column, and checks if there is a path from the selected cell to
+     * the center (row 2, col 2). If such a path exists, the function prints the result.
+     * Otherwise, it prints "no result".
      * 
-     * @param args 0-argument main method, which is required for a Java program to be
-     * executed as a standalone application.
+     * @param args 1-2 command-line arguments passed to the program, which can be used
+     * to set base and total parameters if desired.
      */
     public static void main(String[] args) {
         grid = new int[base][base];
@@ -70,21 +68,19 @@ public class KnightsTour {
     }
     
     /**
-     * Solves a Sudoku puzzle by iterating through the grid and applying a set of rules
-     * to fill in missing values based on their neighbors.
+     * Solves a sliding puzzle by determining if there is a valid solution to move all
+     * tiles from one side of the grid to the other, starting at a given position and
+     * count of moves. It does this by recursively checking neighboring positions and
+     * updating the grid as needed.
      * 
-     * @param row 2D coordinate of the cell being analyzed for its neighbors and possible
-     * matches in the grid.
+     * @param row 2D coordinate of the cell being analyzed for orphans.
      * 
-     * @param column 2nd dimension of the grid, which is used to identify the position
-     * of the cell being analyzed and to keep track of the count of occupied cells in
-     * each row.
+     * @param column 2D coordinate of the cell to be examined for possible orphaned regions.
      * 
-     * @param count 2D position of the current cell that is being checked for possible
-     * placement of a block, and determines the number of blocks that can be placed at
-     * that position.
+     * @param count 2D position of the current cell in the grid, and it is used to determine
+     * whether the cell is part of an orphan or not in the given row and column.
      * 
-     * @returns a boolean value indicating whether the Sudoku puzzle is solved or not.
+     * @returns a boolean value indicating whether the Sudoku puzzle has been solved.
      */
     private static boolean solve(int row, int column, int count) {
         if (count > total) {
