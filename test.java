@@ -35,6 +35,16 @@ public class KnightsTour {
     private static int[][] grid; // chess grid
     private static int total; // total squares in chess
 
+    /**
+     * Creates a grid of size `base x base`, sets some cells to -1, and then randomly
+     * selects a row and column within the grid. If the cell at the selected position is
+     * not -1, it solves the game by tracing a path from the starting point to the end
+     * using Breadth-First Search. Finally, it prints the result of solving or not solving
+     * the game.
+     * 
+     * @param args 0-argument main method, which is required for a Java program to be
+     * executed as a standalone application.
+     */
     public static void main(String[] args) {
         grid = new int[base][base];
         total = (base - 4) * (base - 4);
@@ -59,6 +69,23 @@ public class KnightsTour {
         }
     }
     
+    /**
+     * Solves a Sudoku puzzle by iterating through the grid and applying a set of rules
+     * to fill in missing values based on their neighbors.
+     * 
+     * @param row 2D coordinate of the cell being analyzed for its neighbors and possible
+     * matches in the grid.
+     * 
+     * @param column 2nd dimension of the grid, which is used to identify the position
+     * of the cell being analyzed and to keep track of the count of occupied cells in
+     * each row.
+     * 
+     * @param count 2D position of the current cell that is being checked for possible
+     * placement of a block, and determines the number of blocks that can be placed at
+     * that position.
+     * 
+     * @returns a boolean value indicating whether the Sudoku puzzle is solved or not.
+     */
     private static boolean solve(int row, int column, int count) {
         if (count > total) {
             return true;

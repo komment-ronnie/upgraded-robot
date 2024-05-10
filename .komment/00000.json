@@ -1,0 +1,100 @@
+[
+  {
+    "name": "test.java",
+    "path": "test.java",
+    "content": {
+      "structured": {
+        "description": "",
+        "items": [
+          {
+            "id": "20deacc7-f2b5-423e-85db-b0b68a470cae",
+            "ancestors": [],
+            "type": "function",
+            "name": "main",
+            "location": {
+              "offset": " ",
+              "indent": 4,
+              "insert": 38,
+              "start": 38
+            },
+            "returns": false,
+            "params": [
+              {
+                "name": "args",
+                "type": "String[]"
+              }
+            ],
+            "skip": false,
+            "docLength": null,
+            "length": 23,
+            "comment": {
+              "description": "Creates a grid of size `base x base`, sets some cells to -1, and then randomly selects a row and column within the grid. If the cell at the selected position is not -1, it solves the game by tracing a path from the starting point to the end using Breadth-First Search. Finally, it prints the result of solving or not solving the game.",
+              "params": [
+                {
+                  "name": "args",
+                  "type": "String[]",
+                  "description": "0-argument main method, which is required for a Java program to be executed as a standalone application."
+                }
+              ],
+              "returns": null
+            }
+          },
+          {
+            "id": "6304efc4-b15c-48f9-85e1-bf75f0b4a1d3",
+            "ancestors": [],
+            "type": "function",
+            "name": "solve",
+            "location": {
+              "offset": " ",
+              "indent": 4,
+              "insert": 62,
+              "start": 62
+            },
+            "returns": "boolean",
+            "params": [
+              {
+                "name": "row",
+                "type": "int"
+              },
+              {
+                "name": "column",
+                "type": "int"
+              },
+              {
+                "name": "count",
+                "type": "int"
+              }
+            ],
+            "skip": false,
+            "docLength": null,
+            "length": 25,
+            "comment": {
+              "description": "Solves a Sudoku puzzle by iterating through the grid and applying a set of rules to fill in missing values based on their neighbors.",
+              "params": [
+                {
+                  "name": "row",
+                  "type": "int",
+                  "description": "2D coordinate of the cell being analyzed for its neighbors and possible matches in the grid."
+                },
+                {
+                  "name": "column",
+                  "type": "int",
+                  "description": "2nd dimension of the grid, which is used to identify the position of the cell being analyzed and to keep track of the count of occupied cells in each row."
+                },
+                {
+                  "name": "count",
+                  "type": "int",
+                  "description": "2D position of the current cell that is being checked for possible placement of a block, and determines the number of blocks that can be placed at that position."
+                }
+              ],
+              "returns": {
+                "type": "boolean",
+                "description": "a boolean value indicating whether the Sudoku puzzle is solved or not."
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+]
