@@ -17,7 +17,6 @@ public class KnightsTour {
             return count;
         }
     }
-    
     private static final int base = 12;
     private static final int[][] moves = {
         {1, -2},
