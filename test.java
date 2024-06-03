@@ -2,8 +2,29 @@ package com.thealgorithms.backtracking;
 
 import java.util.*;
 
+/**
+ * Is an implementation of the N-Queens problem, where the goal is to place N queens
+ * on a board such that no queen attacks any other queen. The class has several methods
+ * for solving this problem, including `size()` which returns the number of rows on
+ * the board, `grid` which is the 2D array representing the board, and `total` which
+ * is the total number of squares on the board. The `solve()` method takes a row and
+ * column as input and checks if there is a queen that can be placed at that position
+ * without attacking any other queen. If there is a solution, it prints the result
+ * and returns true; otherwise, it returns false. The class also has several utility
+ * methods for working with the grid, such as `neighbors()` which returns a list of
+ * nearby cells, `countNeighbors()` which counts the number of non-zero neighbors of
+ * a given cell, and `orphanDetected()` which checks if a node is an orphan (i.e.,
+ * has no alive neighbors).
+ */
 public class KnightsTour {
     
+    /**
+     * Calculates the number of nodes in a circular linked list by iterating over the
+     * list from its head and counting the number of non-null items. If the count reaches
+     * the maximum value, the list is considered empty.
+     * 
+     * @returns the number of nodes in the circular buffer.
+     */
     public int size() {
         restartFromHead: for (;;) {
             int count = 0;
@@ -34,6 +55,17 @@ public class KnightsTour {
     private static int[][] grid; // chess grid
     private static int total; // total squares in chess
 
+    /**
+     * Generates a 2D grid with random values, checks for existence of a path between two
+     * random coordinates using a recursive method `solve`, and prints the result.
+     * 
+     * @param args 0-or-more command line arguments passed to the program, which are
+     * ignored in this case and have no effect on the function's execution.
+     * 
+     * 	- Length: `args.length` is equal to 0 or 1.
+     * 	- Elements: If `args.length > 0`, then `args[0]` is a String representing the
+     * command line argument. Otherwise, there are no command line arguments.
+     */
     public static void main(String[] args) {
         grid = new int[base][base];
         total = (base - 4) * (base - 4);
@@ -58,6 +90,23 @@ public class KnightsTour {
         }
     }
     
+    /**
+     * Determines if a given cell can be filled with a number greater than its current
+     * value, based on the values of its neighbors and the total number of cells that can
+     * be filled.
+     * 
+     * @param row 2D coordinate of the cell being checked for orphan status.
+     * 
+     * @param column 2nd dimension of the grid, which is used to determine the position
+     * of the cell being checked for orphans and to update the count of orphans for each
+     * cell.
+     * 
+     * @param count 2D coordinate of the cell that the function is trying to find the
+     * value for, and it is used to determine if the function should continue searching
+     * or stop when a valid value is found.
+     * 
+     * @returns a boolean value indicating whether the Sudoku puzzle has been solved.
+     */
     private static boolean solve(int row, int column, int count) {
         if (count > total) {
             return true;
@@ -85,24 +134,16 @@ public class KnightsTour {
     }
 
     /**
-     * This function `neighbors(int row++, int column++)` returns a list of integer tuples
-     * representing the neighbors of the current position (row and column) on the game
-     * grid. It does so by iterating over a list of valid moves `moves` and counting the
-     * number of neighbors for each position reached by moving from the current position
-     * to the target position.
+     * Calculates and returns a list of neighboring cells to a given cell in a grid, based
+     * on the movement patterns of the grid's cells.
      * 
-     * @param row The `row` input parameter specifies the row number of the current cell
-     * being processed. It is used to index into the `grid` array to determine the values
-     * of cells located above or to the left of the current cell.
+     * @param row 2D coordinate of the cell in the grid for which the neighbors are being
+     * calculated.
      * 
-     * @param column The `column` input parameter specifies the current position on the
-     * grid that is being analyzed for possible moves.
+     * @param column 2D coordinate of the cell in the grid that is being analyzed for neighbors.
      * 
-     * @returns This function returns a List of integer arrays representing the neighbors
-     * of a given row and column position on a grid. Each integer array has three elements:
-     * the y-coordinate of the neighboring cell (second element), the x-coordinate of the
-     * neighboring cell (first element), and the number of neurons that cell contains
-     * (third element).
+     * @returns a list of triples containing the row and column of the current cell, and
+     * the number of neighbors with the same value.
      */
     private static List<int[]> neighbors(int row, int column) {
         List<int[]> neighbour = new ArrayList<>();
@@ -119,20 +160,15 @@ public class KnightsTour {
     }
 
     /**
-     * This function counts the number of non-zero cells that are located on the same row
-     * and column as a given cell.
+     * Counts the number of neighbors of a given cell in a grid that are occupied by the
+     * game pieces.
      * 
-     * @param row The `row` input parameter represents the current cell being evaluated
-     * for neighboring cells. It determines the starting point for the iteration over the
-     * move array.
+     * @param row 2D coordinate of the cell for which the number of neighbors is being counted.
      * 
-     * @param column The `column` input parameter is used to iterate through the rows of
-     * the grid while counting the number of neighboring empty cells. It determines the
-     * current column being examined.
+     * @param column 2D coordinate of the cell in the grid that the function is called
+     * for, and is used to determine which cells to count as neighbors.
      * 
-     * @returns The output returned by this function is an integer value that represents
-     * the number of non-zero neighbors of a given cell (row and column) on a grid with
-     * size NxN.
+     * @returns the number of neighbors of a given cell in a grid.
      */
     private static int countNeighbors(int row, int column) {
         int num = 0;
@@ -145,32 +181,18 @@ public class KnightsTour {
     }
 
     /**
-     * This function checks if a given cell (row and column) has no alive neighbors (cells
-     * with a value of 1). It does this by iterating over the neighbors of the given cell
-     * and checking if all of their alive neighbors have been cleared. If such a cell is
-     * found (i.e., a cell with no alive neighbors), the function returns true. Otherwise
-     * (if no such cell is found), it returns false.
+     * Checks if a given cell is an orphan by examining its neighbors and determining if
+     * any neighboring cells have a count of zero. If so, the function returns `true`.
      * 
-     * @param count The `count` input parameter represents the number of mines remaining
-     * to be discovered.
+     * @param count 2D coordinate of the cell being checked for orphan status, and is
+     * used to determine if the cell has any neighbors with zero count.
      * 
-     * @param row The `row` input parameter specifies the row number of the detected orphan.
+     * @param row 1D coordinate of the current cell being evaluated in the grid.
      * 
-     * @param column The `column` parameter represents the column index of the current
-     * cell being evaluated for orphanhood.
+     * @param column 2D coordinate of the cell being analyzed in the grid.
      * 
-     * @returns This function takes three integers `count`, `row`, and `column` as input
-     * and returns a boolean value indicating whether an orphan node (i.e., a node that
-     * has no neighbors) has been detected.
-     * 
-     * Here's a concise description of the output:
-     * 
-     * 	- If `count < total - 1` (i.e., there are still some neighboring nodes to be
-     * checked), the function checks the neighboring nodes of the current node (`row`, `column`).
-     * 	- If none of the neighbors have any neighbors themselves (i.e., `countNeighbors(nb[0],
-     * nb[1]) == 0`), then an orphan node has been detected and the function returns `true`.
-     * 	- Otherwise (i.e., there is at least one neighbor with neighbors), the function
-     * returns `false`.
+     * @returns a boolean value indicating whether an orphan cell is detected in the given
+     * grid.
      */
     private static boolean orphanDetected(int count, int row, int column) {
         if (count < total - 1) {
@@ -185,11 +207,8 @@ public class KnightsTour {
     }
 
     /**
-     * This function prints the values storedin a two-dimensional int array 'grid', with
-     * each row represented as a list of integers. For each row it checks if any value
-     * is -1 and skips those rows entirely. Otherwise it formats each integer with a space
-     * and a padding of 2 spaces before the next integer. Finally it prints a new line
-     * at the end of each row.
+     * Iterates over a 2D array `grid` and prints each element in a compact format, with
+     * leading zeroes and a final newline.
      */
     private static void printResult() {
         for (int[] row : grid) {
